@@ -1,0 +1,73 @@
+#!/bin/bash
+
+# this is a script to simplify the process of running headless vmware fusion virtual machines
+
+# if no paramerter is enterned, check for any running virtual machine
+if [ -z "$1" ] 
+  then
+    vmrun list
+    exit 1
+fi
+
+VMEXTRA=""
+# the first parameter is the action
+case "$1" in
+  start)
+    VMC="start"
+    VMEXTRA="nogui"
+    ;;
+  stop)
+    VMC="stop"
+    ;;
+  suspend)
+    VMC="suspend"
+    ;;
+  pause)
+    VMC="pause"
+    ;;
+  unpause)
+    VMC="unpause"
+    ;;
+  restart)
+    VMC="reset"
+    ;;
+  ip)
+    VMC="getGuestIPAddress"
+    VMEXTRA="-wait"
+    ;;
+  *)
+    echo "Usage: possible options are: start | stop | suspend | pause | unpause | restart | ip"
+    exit 1
+esac
+
+# check if second parameter is inputed
+if [ -z "$2" ] 
+  then
+    echo "Please enter the name of a virtual machine."
+    exit 1
+fi
+
+# the second parameter is the name of the virtual machine
+# change the name and address to your own liking
+case "$2" in
+  some_name)
+    VM="vmx_destination"
+    ;;
+  *)
+    echo "Please use a correct virtual machine name."
+    exit 1
+esac
+
+# run the operation
+vmrun $VMC "$VM" $VMEXTRA
+
+# if you are starting the vm, set up the ssh profile
+# if [ $1 = "start" ]
+#  then 
+#     VMIP=$(vm ip $2)
+
+#     VMSTR='/Host '$2'/,/HostName/ s/HostName .*/HostName '${VMIP}'/;'
+
+#     sed -i -n "$VMSTR" ~/.ssh/config
+#     echo $VMIP
+# fi
