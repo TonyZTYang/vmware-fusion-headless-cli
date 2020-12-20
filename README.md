@@ -32,7 +32,7 @@ If you want to be able to ssh to the machine with `ssh machine_name`, setup the 
    - Leave the `placeholder` as it is.
    - It's okay to specify ports, ssh keys or usernames as you wish as long as the `HostName` key exists.
 ### Usage
-- **Start/stop/restart/suspend/pause/unpause a virtual machine:** `vm start/stop/restart/suspend/pause/unpase vm_name`
+- **Start/stop/restart/suspend/pause/unpause a virtual machine:** `vm start/stop/restart/suspend/pause/unpause vm_name`
 - **Check virtual machine ip address:** `vm ip vm_name`
 - **(Optional) Connect to virtual machine through ssh:** `ssh vm_name`
 
