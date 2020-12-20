@@ -2,15 +2,15 @@
 
 # this is a script to simplify the process of running headless vmware fusion virtual machines
 
-# if no paramerter is enterned, check for any running virtual machine
+# if no paramerter is enterned, check if any virtual machine is running
 if [ -z "$1" ] 
   then
     vmrun list
     exit 1
 fi
 
+# the first parameter represents the actions to be taken
 VMEXTRA=""
-# the first parameter is the action
 case "$1" in
   start)
     VMC="start"
@@ -40,18 +40,18 @@ case "$1" in
     exit 1
 esac
 
-# check if second parameter is inputed
+# if the second parameter is not inputed, ask the user to input it
 if [ -z "$2" ] 
   then
-    echo "Please enter the name of a virtual machine."
+    echo "Please enter the name of the virtual machine."
+    # 
     exit 1
 fi
 
-# the second parameter is the name of the virtual machine
-# change the name and address to your own liking
+# NAME: the second parameter is the name of the virtual machine
 case "$2" in
-  some_name)
-    VM="vmx_destination"
+  vm_name)
+    VM="path_to_vmx"
     ;;
   *)
     echo "Please use a correct virtual machine name."
@@ -61,7 +61,7 @@ esac
 # run the operation
 vmrun $VMC "$VM" $VMEXTRA
 
-# if you are starting the vm, set up the ssh profile
+# SSH: setup your ssh config after starting your vm
 # if [ $1 = "start" ]
 #  then 
 #     VMIP=$(vm ip $2)
