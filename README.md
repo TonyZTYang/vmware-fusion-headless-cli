@@ -9,7 +9,7 @@ A bash script to help with easy start/stop/ssh to your virtual machines.
 ### Setup
 1. Put the file `vm` to one of your `$PATH` destinations, usually `/bin/` or `/usr/local/bin/`.
 2. Grant the user executional permission to this file e.g. `usermod u+x file_path`.
-3. Specify the virtual machine names and their corresponding path to the vmx file
+3. Specify the virtual machine names and their corresponding path to the vmx file in the `vm` file.
    1. The section of code for this setup comes after the line of comment starting with `# NAME:`
    2. For each virtual machine you want to setup, there should be a block in the following formatt.
     ```bash
