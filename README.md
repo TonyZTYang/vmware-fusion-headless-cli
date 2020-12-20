@@ -1,6 +1,6 @@
 # vmware-fusion-headless-cli
 A bash script to help with easy start/stop/ssh to your virtual machines.
-## what it can do
+## What it can do
 - **Start/stop/pause/unpause virtual machines** without having to input their **full paths** every time.
 - Get the virtual machine's current **ip address** for ssh connections and other operations.
 - **Automatically load** the virtual machine's **ip address** in your **ssh client's config file** so that you don't have to look up and input the ip every time you make an ssh connection.
