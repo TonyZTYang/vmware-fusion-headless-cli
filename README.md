@@ -1,7 +1,7 @@
 # vmware-fusion-headless-cli
 A bash script to help with easy start/stop/ssh to your virtual machines.
 ## what it can do
-- **Start/stop/pause/unpause virtual machines** without having to input their **full path** every time.
+- **Start/stop/pause/unpause virtual machines** without having to input their **full paths** every time.
 - Get the virtual machine's current **ip address** for ssh connections and other operations.
 - **Automatically load** the virtual machine's **ip address** in your **ssh client's config file** so that you don't have to look up and input the ip every time you make an ssh connection.
 
@@ -21,7 +21,6 @@ A bash script to help with easy start/stop/ssh to your virtual machines.
     - Replace `"path_to_vmx"` with the absolute path of the vmx file for the vm. [On how to find the vmx file](https://docs.vmware.com/en/VMware-Fusion/12/com.vmware.fusion.using.doc/GUID-212F0E8A-5D1B-4DCD-A60C-B34116BDD2D3.html)
 ### (Optional) Auto-ssh setup
 If you want to be able to ssh to the machine with `ssh machine_name`, setup the following steps.
-
 1. Uncomment the lines after the line of comment starting with `# SSH:`.
 2. Set the network option for your virtual machine to **bridged** (other network method should work as well).
 3. Configure each virtual machine's profile in `~/.ssh/config` as follows.
@@ -32,6 +31,10 @@ If you want to be able to ssh to the machine with `ssh machine_name`, setup the 
    - Replace `vm_name` with the virtual machine's name set in the `vm` file.
    - Leave the `placeholder` as it is.
    - It's okay to specify ports, ssh keys or usernames as you wish as long as the `HostName` key exists.
+### Usage
+- **Start/stop/restart/suspend/pause/unpause a virtual machine:** `vm start/stop/restart/suspend/pause/unpase vm_name`
+- **Check virtual machine ip address:** `vm ip vm_name`
+- **(Optional) Connect to virtual machine through ssh:** `ssh vm_name`
 
 ## Why the script exists
 This scripts gradually came into place when I tried to run my vmware fusion servers headless for simplicity and performance.
